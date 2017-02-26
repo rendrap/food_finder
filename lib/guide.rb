@@ -38,6 +38,7 @@ class Guide
 	def get_action
 		action = nil
 	# Keep asking for user input until we get a valid action
+		# check wether user input (action) match Config.actions list
 		until Guide::Config.actions.include?(action)
 			puts "Actions: " + Guide::Config.actions.join(",  ")
 			print "> "
