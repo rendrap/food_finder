@@ -5,6 +5,8 @@ class Restaurant
 		@@filepath = File.join(APP_ROOT, path)
 	end
 
+	attr_accessor :name, :cuisine, :price
+
 	def self.file_exist?
 		# class should know if resturant file exist
 		if @@filepath && File.exist?(@@filepath)
@@ -33,4 +35,11 @@ class Restaurant
 		# return instances of restaurant
 	end
 	
+	def save
+		return false unless Restaurant.file_usable?
+		File.open(@@filepath, 'a') do |file|
+			file.puts "#{[@name, @cuisine, @price].join("\t")}\n"
+		end
+	end
+
 end
