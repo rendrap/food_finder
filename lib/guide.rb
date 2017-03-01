@@ -65,16 +65,8 @@ class Guide
 
 		def add
 			puts "\n Add a restaurant\n\n".upcase
-			restaurant = Restaurant.new
-
-			print "Restaurant name: "
-			restaurant.name = gets.chomp.strip
-
-			print "Cuisinie type: "
-			restaurant.cuisine = gets.chomp.strip
-
-			print "Average price: "
-			restaurant.price = gets.chomp.strip
+			
+			restaurant = Restaurant.build_using_question
 
 			if restaurant.save
 				puts "\nRestaurant Added\n\n"
@@ -82,7 +74,6 @@ class Guide
 				puts "\nSave error - Restaurant not added\n\n"
 			end
 		end
-
 
 		def introduction
 			puts "\n\n<< Welcome to the food finder >>>\n\n"
