@@ -51,7 +51,8 @@ class Guide
  		def do_action(action)
 			case action
 			when 'list'
-				puts "Listing..."
+				# puts "Listing..."
+				list
 			when 'find'
 				puts 'Finding...'
 			when 'add'
@@ -62,6 +63,15 @@ class Guide
 			puts "\n I don't understand that command.\n"
 			end
 		end
+
+		def list
+			puts "\n Listing restaurants\n\n".upcase
+			restaurants = Restaurant.saved_restaurants
+			restaurants.each do |rest|
+				puts rest.name + " | " + rest.cuisine + " | " + rest.formatted_price
+			end
+		end
+
 
 		def add
 			puts "\n Add a restaurant\n\n".upcase
@@ -83,5 +93,4 @@ class Guide
 		def conclusion
 			puts "\n<<< Goodbye and Bon Appetit! >>>\n\n\n"
 		end
-
 end

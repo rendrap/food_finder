@@ -1,1 +1,3 @@
-res sedap	masakan jawa	$9
+res sedap	masakan jawa	9
+Masala	indian food	30
+kfc	ayam goreng	50

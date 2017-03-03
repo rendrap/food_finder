@@ -1,4 +1,7 @@
+require 'support/number_helper'
 class Restaurant
+	include NumberHelper
+
 	@@filepath = nil
 	def self.filepath=(path=nil)
 		# join ROOT and path
@@ -8,7 +11,7 @@ class Restaurant
 	attr_accessor :name, :cuisine, :price
 
 	def self.file_exist?
-		# class should know if resturant file exist
+		# class should know if restaurant file file_exist
 		if @@filepath && File.exist?(@@filepath)
 			return true
 		else
@@ -31,9 +34,18 @@ class Restaurant
 		return file_usable?
 	end
 
-	def self.saved_restaurant
+	def self.saved_restaurants
 		# read the restaurant file
 		# return instances of restaurant
+		restaurants = []
+		if file_usable? 
+			file = File.new(@@filepath,'r')
+			file.each_line do |line|
+				restaurants << Restaurant.new.import_line(line.chomp)
+			end
+			file.close
+		end
+		return restaurants
 	end
 	
 	def self.build_using_question
@@ -57,12 +69,22 @@ class Restaurant
 		@price              = args[:price]   || ""
 	end
 
+	def import_line(line)
+		line_array = line.split("\t")
+		@name, @cuisine, @price = line_array
+		return self 
+	end
+
 	def save
 		return false unless Restaurant.file_usable?
 		File.open(@@filepath, 'a') do |file|
 			file.puts "#{[@name, @cuisine, @price].join("\t")}\n"
 		end
 		return true
+	end
+
+	def formatted_price
+		number_to_currency(@price)
 	end
 
 end
