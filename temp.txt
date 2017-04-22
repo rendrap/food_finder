@@ -1,0 +1,3 @@
+45 celcius is 113 fahrenheit 
+23 celcius is 73 fahrenheit 
+0 celcius is 32 fahrenheit 

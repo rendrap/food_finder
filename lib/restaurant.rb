@@ -54,8 +54,8 @@ class Restaurant
 		print "Restaurant name: "
 		args[:name] = gets.chomp.strip
 
-		print "Cuisinie type: "
-		args[:cuisinie]= gets.chomp.strip
+		print "Cuisine type: "
+		args[:cuisine]= gets.chomp.strip
 
 		print "Average price: "
 		args[:price] = gets.chomp.strip
