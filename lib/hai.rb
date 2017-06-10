@@ -1,2 +1,2 @@
 puts "helllo"
-puts "semua-nya"
+puts "nya"
