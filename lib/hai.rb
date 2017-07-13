@@ -10,3 +10,5 @@ n.times do |i|
 print "list [#{i}] = #{list[i]}\n"
 end
 
+puts "apakah ini perlu di merged (ruby_puts branch)"
+
