@@ -2,7 +2,7 @@ puts "helllo"
 puts "nya\n\n"
 
 # this is comment
-
+# adding comment in master branch
 list = %w[alpha bravo charlie delta echo]
 
 n = list.length-1
