@@ -14,4 +14,4 @@ puts "apakah ini perlu di merged (ruby_puts branch)"
 
 # changes from print_loop branch
 # Changes from local master branch - to be pushed to remote
-
+  slightly more changes than other_version branch
